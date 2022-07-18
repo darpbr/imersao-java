@@ -17,15 +17,12 @@ public class Principal {
 //        Propriedades do token
         Properties prop = getProp();
         String tokenIMDB = prop.getProperty("prop.token");
-        String url = "https://imdb-api.com/en/API/Top250Movies/";
+        String urlTopFilmes = "https://imdb-api.com/en/API/Top250Movies/";
         String urlFilmesPopulares = "https://imdb-api.com/en/API/MostPopularMovies/";
 
 //         Fazer conexão HTTP para buscar os TOP 250 Filmes (JSON)
-        URI endereco = URI.create(url+tokenIMDB);
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        String json = response.body();
+        Conexao con = new Conexao();
+        String json = con.getConexao(urlFilmesPopulares, tokenIMDB);
 
 //        fazer o parser do JSON com os dados que nos interessam - Título, poster (imagem) e
 //        classificação (rating)
@@ -46,5 +43,6 @@ public class Principal {
             System.out.println("\u001b[1m \u001b[41m Nota: \u001b[m " +
                     filme.get("imDbRating"));
         }
+        System.out.println("Tamanho do arquivo: " + listaFilmes.size());
     }
 }
