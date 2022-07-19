@@ -19,6 +19,8 @@ a saída para exibir de melhor forma.
 Nesta aula vimos como chamar um endpoint da API IMDB e fomos desafiados a personalizar
 o resultado exibindo no terminal em cores diferentes e utilizando imagens.
 
+![Imagen Aula1]("images/Aula1.png")
+
 ## Aua 2
 
 <h4 align="center"> 

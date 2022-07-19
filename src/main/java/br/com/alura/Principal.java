@@ -48,13 +48,15 @@ public class Principal {
             InputStream inputStream = new URL(urlImagem).openStream();
             System.out.println("\u001b[1m \u001b[41m Titulo: \u001b[m " +
                     titulo);
-            System.out.println("\u001b[1m \u001b[41m Poster: \u001b[m " +
+            System.out.println("\u001b[1m \u001b[44m Poster: \u001b[m " +
                     urlImagem);
-            System.out.println("\u001b[1m \u001b[41m Nota: \u001b[m " +
-                    notaFilme);
             if(notaFilme >= 9){
+                System.out.println("\u001b[1m \u001b[42m Nota: \u001b[m " +
+                        notaFilme);
                 mensagemPoster = "Filme Nota 10!";
             }else{
+                System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+                        notaFilme);
                 mensagemPoster = "Filme Mediano!";
             }
             geradora.cria(inputStream, titulo+".png", mensagemPoster);
