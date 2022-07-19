@@ -4,10 +4,11 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class GeradoraDeSticker {
 
@@ -28,14 +29,19 @@ public class GeradoraDeSticker {
         graphics.drawImage(imagemOriginal,0,0, null);
 
 //        Configurar fonte para gravar o texto na imaggem
-        Font fonte = new Font(Font.SANS_SERIF, Font.BOLD, 64);
+        Font fonte = new Font(Font.SANS_SERIF, Font.BOLD, (int)largura/15);
         graphics.setColor(Color.YELLOW);
         graphics.setFont(fonte);
 
 //        Escrever uma frase na nova imagem
-        graphics.drawString(frase, fonte.getSize2D(), altura+100);
+        graphics.drawString(frase, (int)largura/4, altura+100);
 
 //        Escrever a nova imagem em um arquivo
+//        Se a pasta não existir, será criada uma nova pasta com nome saída
+        Path path = Paths.get("saida");
+        if(!Files.exists(path))
+            Files.createDirectory(path);
+
         ImageIO.write(novaImagem,"png",new File("saida/"+nomeArquivo));
     }
 }

@@ -57,7 +57,7 @@ public class Principal {
             }else{
                 System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
                         notaFilme);
-                mensagemPoster = "Filme Mediano!";
+                mensagemPoster = "Bom Filme!";
             }
             geradora.cria(inputStream, titulo+".png", mensagemPoster);
         }
