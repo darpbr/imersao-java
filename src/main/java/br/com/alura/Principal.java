@@ -16,32 +16,28 @@ public class Principal {
 //        Propriedades do token
         Properties prop = getProp();
         String tokenIMDB = prop.getProperty("prop.token");
+        String tokenNasa = prop.getProperty("prop.tokenNasa");
+        String urlNasa = "https://api.nasa.gov/planetary/apod?api_key=";
         String urlTopFilmes = "https://imdb-api.com/en/API/Top250Movies/";
         String urlFilmesPopulares = "https://imdb-api.com/en/API/MostPopularMovies/";
         String urlMockito = "https://api.mocki.io/v2/549a5d8b/Top250Movies";
-
+        String urlTeste = "https://api.nasa.gov/planetary/apod?api_key=wfEP3Sup3sUNZKOWuZfIZ9xy98nQkrtbtSddgbq4&start_date=2022-07-19&end_date=2022-07-20";
 //         Fazer conexão HTTP para buscar os TOP 250 Filmes (JSON)
-        Conexao con = new Conexao();
+        String json = new ClienteHttp().getDadosSemToken(urlTeste);
+//        System.out.println("JSON: "+json);
 
-        String json = con.getConexao2(urlMockito);
-
-//        fazer o parser do JSON com os dados que nos interessam - Título, poster (imagem) e
-//        classificação (rating)
-
-//        Criamos uma lista para receber os valores separados de cada filme
-//        Utilizamos um Map para vincular chave-valor
         JsonParser parser = new JsonParser();
-        List<Map<String, String>> listaFilmes = parser.parse(json);
-
+        List<Map<String, String>> listaConteudos = parser.parse(json);
 
         GeradoraDeSticker geradora = new GeradoraDeSticker();
-        String mensagemPoster = "";
 
 //        Exibir e manipular os dados
-        for (Map<String, String> filme: listaFilmes ) {
-            String titulo = filme.get("title").trim();
-            String urlImagem = filme.get("image");
-            Double notaFilme = Double.parseDouble(filme.get("imDbRating"));
+        for (Map<String, String> conteudo: listaConteudos ) {
+            String titulo = conteudo.get("title").trim();
+            String urlImagem = conteudo.get("url");
+//            String urlImagem = conteudo.get("image");
+//            Double notaFilme = Double.parseDouble(conteudo.get("imDbRating"));
+            Double notaFilme = 10.0;
             InputStream inputStream = new URL(urlImagem).openStream();
             System.out.println("\u001b[1m \u001b[41m Titulo: \u001b[m " +
                     titulo);
@@ -67,6 +63,6 @@ public class Principal {
 //            }
             geradora.cria(inputStream, titulo+".png", notaFilme);
         }
-        System.out.println("Tamanho do arquivo: " + listaFilmes.size());
+        System.out.println("Tamanho do arquivo: " + listaConteudos.size());
     }
 }
