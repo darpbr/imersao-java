@@ -42,7 +42,7 @@ public class GeradoraDeSticker {
             System.out.println("\u001b[1m \u001b[42m Nota: \u001b[m " +
                     nota);
             mensagem = "Filme TOP";
-            graphics.drawImage(iconeFilme, largura/2, novaAltura - 100, null);
+            graphics.drawImage(iconeFilme, (largura/2)+largura/4, novaAltura - 100, null);
         }else if(nota >= 7){
             System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
                     nota);
