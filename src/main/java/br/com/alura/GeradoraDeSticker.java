@@ -51,10 +51,14 @@ public class GeradoraDeSticker {
             System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
                     nota);
             mensagem = "Filme classe C";
-        }else{
+        }else if(nota >= 0) {
             System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
                     nota);
             mensagem = "Nem perca tempo assistindo";
+        }
+        else{
+            System.out.println("Não é um filme!");
+            mensagem = "Bela Imagem!";
         }
 
         graphics.setColor(Color.YELLOW);
