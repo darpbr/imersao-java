@@ -4,17 +4,21 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class GeradoraDeSticker {
 
-    public void cria(InputStream inputStream, String nomeArquivo, String frase) throws IOException, FontFormatException {
+    public void cria(InputStream inputStream, String nomeArquivo, Double nota) throws IOException, FontFormatException {
 
         BufferedImage imagemOriginal = ImageIO.read(inputStream);
+        InputStream inputStream1 = new FileInputStream(new File("images/icone-filme.png"));
+        BufferedImage iconeFilme = ImageIO.read(inputStream1);
 
 //        criar uma imagem em memória com transparência e com tamanho novo
         int largura = imagemOriginal.getWidth();
@@ -31,14 +35,36 @@ public class GeradoraDeSticker {
                         new File("fonte/impact.ttf"))
                 .deriveFont(Font.PLAIN, largura/15);
 
+        //        Veririficando a nota para personalização da mensagem e inclusão do icone no poster
+        String mensagem = "";
+
+        if(nota >= 9){
+            System.out.println("\u001b[1m \u001b[42m Nota: \u001b[m " +
+                    nota);
+            mensagem = "Filme TOP";
+            graphics.drawImage(iconeFilme, largura/2, novaAltura - 100, null);
+        }else if(nota >= 7){
+            System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+                    nota);
+            mensagem = "Bom Filme!";
+        }else if(nota >= 4){
+            System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+                    nota);
+            mensagem = "Filme classe C";
+        }else{
+            System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+                    nota);
+            mensagem = "Nem perca tempo assistindo";
+        }
+
         graphics.setColor(Color.YELLOW);
         graphics.setFont(impact);
-        int tamanhoFrase = graphics.getFontMetrics().stringWidth(frase);
+        int tamanhoFrase = graphics.getFontMetrics().stringWidth(mensagem);
         int localFrase = (novaImagem.getWidth() - tamanhoFrase)/2;
 
-
 //        Escrever uma frase na nova imagem
-        graphics.drawString(frase, localFrase, novaAltura-100);
+        graphics.drawString(mensagem, localFrase, novaAltura-100);
+
 
 //        Escrever a nova imagem em um arquivo
 //        Se a pasta não existir, será criada uma nova pasta com nome saída

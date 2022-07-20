@@ -48,24 +48,24 @@ public class Principal {
             System.out.println("\u001b[1m \u001b[44m Poster: \u001b[m " +
                     urlImagem);
 
-            if(notaFilme >= 9){
-                System.out.println("\u001b[1m \u001b[42m Nota: \u001b[m " +
-                        notaFilme);
-                mensagemPoster = "Filme TOP";
-            }else if(notaFilme >= 7){
-                System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
-                        notaFilme);
-                mensagemPoster = "Bom Filme!";
-            }else if(notaFilme >= 4){
-                System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
-                        notaFilme);
-                mensagemPoster = "Filme classe C";
-            }else{
-                System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
-                        notaFilme);
-                mensagemPoster = "Nem perca tempo assistindo";
-            }
-            geradora.cria(inputStream, titulo+".png", mensagemPoster);
+//            if(notaFilme >= 9){
+//                System.out.println("\u001b[1m \u001b[42m Nota: \u001b[m " +
+//                        notaFilme);
+//                mensagemPoster = "Filme TOP";
+//            }else if(notaFilme >= 7){
+//                System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+//                        notaFilme);
+//                mensagemPoster = "Bom Filme!";
+//            }else if(notaFilme >= 4){
+//                System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+//                        notaFilme);
+//                mensagemPoster = "Filme classe C";
+//            }else{
+//                System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+//                        notaFilme);
+//                mensagemPoster = "Nem perca tempo assistindo";
+//            }
+            geradora.cria(inputStream, titulo+".png", notaFilme);
         }
         System.out.println("Tamanho do arquivo: " + listaFilmes.size());
     }
