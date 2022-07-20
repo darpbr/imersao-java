@@ -17,7 +17,7 @@ a saída para exibir de melhor forma.
 </h4>
 
 Nesta aula vimos como chamar um endpoint da API IMDB e fomos desafiados a personalizar
-o resultado exibindo no terminal em cores diferentes e utilizando imagens.
+o resultado exibindo no terminal em cores diferentes e utilizando imagens. Para utilização
 
 ![Imagen Aula1](images/Aula1.png)
 
