@@ -30,3 +30,24 @@ o resultado exibindo no terminal em cores diferentes e utilizando imagens.
 Nesta aula aprendemos como personalizar as imagens (Poster dos filmes) de retorno da API
 incluindo um texto ao final da imagem e criando um sticker para utilizar, por exemplo, 
 no WhatsApp ou outro sistema de mensagens.
+
+
+## Aua 3
+
+<h4 align="center"> 
+    :construction:  Projeto em construção  :construction:
+</h4>
+
+
+## Aua 4
+
+<h4 align="center"> 
+    :construction:  Projeto em construção  :construction:
+</h4>
+
+
+## Aua 5
+
+<h4 align="center"> 
+    :construction:  Projeto em construção  :construction:
+</h4>
