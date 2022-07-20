@@ -1,12 +1,9 @@
 package br.com.alura;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
 import java.net.URL;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -14,7 +11,7 @@ import java.util.Properties;
 import static br.com.alura.Manipulador.getProp;
 
 public class Principal {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException, FontFormatException {
 
 //        Propriedades do token
         Properties prop = getProp();
@@ -25,7 +22,7 @@ public class Principal {
 
 //         Fazer conexão HTTP para buscar os TOP 250 Filmes (JSON)
         Conexao con = new Conexao();
-//        String json = con.getConexao(urlTopFilmes, tokenIMDB);
+
         String json = con.getConexao2(urlMockito);
 
 //        fazer o parser do JSON com os dados que nos interessam - Título, poster (imagem) e
@@ -35,11 +32,11 @@ public class Principal {
 //        Utilizamos um Map para vincular chave-valor
         JsonParser parser = new JsonParser();
         List<Map<String, String>> listaFilmes = parser.parse(json);
-//        System.out.println("Tamanho da lista de filmes: " + listaFilmes.size());
-//        System.out.println("Primeiro filme da lista: " + listaFilmes.get(0));
+
 
         GeradoraDeSticker geradora = new GeradoraDeSticker();
         String mensagemPoster = "";
+
 //        Exibir e manipular os dados
         for (Map<String, String> filme: listaFilmes ) {
             String titulo = filme.get("title").trim();
@@ -50,14 +47,23 @@ public class Principal {
                     titulo);
             System.out.println("\u001b[1m \u001b[44m Poster: \u001b[m " +
                     urlImagem);
+
             if(notaFilme >= 9){
                 System.out.println("\u001b[1m \u001b[42m Nota: \u001b[m " +
                         notaFilme);
-                mensagemPoster = "Filme Nota 10!";
-            }else{
+                mensagemPoster = "Filme TOP";
+            }else if(notaFilme >= 7){
                 System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
                         notaFilme);
                 mensagemPoster = "Bom Filme!";
+            }else if(notaFilme >= 4){
+                System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+                        notaFilme);
+                mensagemPoster = "Filme classe C";
+            }else{
+                System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+                        notaFilme);
+                mensagemPoster = "Nem perca tempo assistindo";
             }
             geradora.cria(inputStream, titulo+".png", mensagemPoster);
         }

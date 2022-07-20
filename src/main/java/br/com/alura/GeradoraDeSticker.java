@@ -12,12 +12,10 @@ import java.nio.file.Paths;
 
 public class GeradoraDeSticker {
 
-    public void cria(InputStream inputStream, String nomeArquivo, String frase) throws IOException {
-//        Ler uma imagem
-//        InputStream inputStream = new FileInputStream(new File("Entrada/Filme.jpg"));
-//        InputStream inputStream1 = new URL("https://imersao-java-apis.s3.amazonaws.com/TopMovies_10.jpg").
-//                openStream();
+    public void cria(InputStream inputStream, String nomeArquivo, String frase) throws IOException, FontFormatException {
+
         BufferedImage imagemOriginal = ImageIO.read(inputStream);
+
 //        criar uma imagem em memória com transparência e com tamanho novo
         int largura = imagemOriginal.getWidth();
         int altura = imagemOriginal.getHeight();
@@ -29,12 +27,18 @@ public class GeradoraDeSticker {
         graphics.drawImage(imagemOriginal,0,0, null);
 
 //        Configurar fonte para gravar o texto na imaggem
-        Font fonte = new Font(Font.SANS_SERIF, Font.BOLD, (int)largura/15);
+        Font impact = Font.createFont(Font.TRUETYPE_FONT,
+                        new File("fonte/impact.ttf"))
+                .deriveFont(Font.PLAIN, largura/15);
+
         graphics.setColor(Color.YELLOW);
-        graphics.setFont(fonte);
+        graphics.setFont(impact);
+        int tamanhoFrase = graphics.getFontMetrics().stringWidth(frase);
+        int localFrase = (novaImagem.getWidth() - tamanhoFrase)/2;
+
 
 //        Escrever uma frase na nova imagem
-        graphics.drawString(frase, (int)largura/4, altura+100);
+        graphics.drawString(frase, localFrase, novaAltura-100);
 
 //        Escrever a nova imagem em um arquivo
 //        Se a pasta não existir, será criada uma nova pasta com nome saída
