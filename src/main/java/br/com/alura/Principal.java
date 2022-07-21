@@ -21,12 +21,11 @@ public class Principal {
         String urlTopFilmes = "https://imdb-api.com/en/API/Top250Movies/";
         String urlFilmesPopulares = "https://imdb-api.com/en/API/MostPopularMovies/";
         String urlMockito = "https://api.mocki.io/v2/549a5d8b/Top250Movies";
-        String urlTeste = urlNasa+tokenNasa+"&count=3";
 
-//        String json = new ClienteHttp().getDadosSemToken(urlMockito);
+//        String json = new ClienteHttp().getDadosComToken(urlTopFilmes+tokenIMDB);
 //        List<Conteudo> listaConteudos = new ExtratorConteudoImdb().extraiConteudo(json);
 
-        String json = new ClienteHttp().getDadosSemToken(urlTeste);
+        String json = new ClienteHttp().getDadosSemToken(urlNasa+tokenNasa+"&count=3");
         System.out.println(json);
         List<Conteudo> listaConteudos = new ExtratorConteudoNasa().extraiConteudo(json);
 
