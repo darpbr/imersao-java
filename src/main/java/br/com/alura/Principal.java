@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 
 import static br.com.alura.Manipulador.getProp;
@@ -21,13 +20,17 @@ public class Principal {
         String urlTopFilmes = "https://imdb-api.com/en/API/Top250Movies/";
         String urlFilmesPopulares = "https://imdb-api.com/en/API/MostPopularMovies/";
         String urlMockito = "https://api.mocki.io/v2/549a5d8b/Top250Movies";
+        String urlLinguagens = "http://localhost:8080/ranking-linguagens";
 
-//        String json = new ClienteHttp().getDadosComToken(urlTopFilmes+tokenIMDB);
+//        String json = new ClienteHttp().getDados(urlTopFilmes+tokenIMDB);
 //        List<Conteudo> listaConteudos = new ExtratorConteudoImdb().extraiConteudo(json);
 
-        String json = new ClienteHttp().getDadosSemToken(urlNasa+tokenNasa+"&count=3");
-        System.out.println(json);
-        List<Conteudo> listaConteudos = new ExtratorConteudoNasa().extraiConteudo(json);
+//        String json = new ClienteHttp().getDados(urlNasa+tokenNasa+"&count=3");
+//        System.out.println(json);
+//        List<Conteudo> listaConteudos = new ExtratorConteudoNasa().extraiConteudo(json);
+
+        String json = new ClienteHttp().getDados(urlLinguagens);
+        List<Conteudo> listaConteudos = new ExtratorConteudoImdb().extraiConteudo(json);
 
         GeradoraDeSticker geradora = new GeradoraDeSticker();
 

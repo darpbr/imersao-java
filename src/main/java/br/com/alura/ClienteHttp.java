@@ -9,7 +9,7 @@ import java.net.http.HttpResponse;
 // Classe que realiza a conexão HTTP com a API do IMDB
 public class ClienteHttp {
 
-    public String getDadosSemToken(String url) {
+    public String getDados(String url) {
         try{
             URI endereco = URI.create(url);
             HttpClient client = HttpClient.newHttpClient();
