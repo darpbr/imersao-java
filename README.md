@@ -1,3 +1,5 @@
+![ImersaoJava](https://user-images.githubusercontent.com/41304141/180502973-63a87ed9-fb0b-4e77-a70b-b7543e41025a.jpg)
+
 <h1 align="center"> Imersão JAVA ALURA </h1>
 
 <p align="left">
@@ -6,9 +8,18 @@
 
 ## Descrição do Projeto
 
-Projeto desenvolvido durante a Imersão JAVA da Alura. Durante a imersão JAVA vamos utilizar uma API do IMDB para requisitar os
-**TOP250 Filmes** e **Filmes mais populares**. Com esta resposta pretendemos personalizar
-a saída para exibir de melhor forma.
+Projeto desenvolvido durante a Imersão JAVA da Alura. Durante a imersão JAVA vamos utilizar APIs do para requisitar dados contendo "title" e "image"
+para que possamos tratar estas informações e transformar em figurinhas para serem utilizadas em Apps de mensagens (WhatsApp e/ou Telegram). Como parte do projeto utilizamos API do **IMDB** tratando os dados dos **TOP250 Filmes** e **Filmes mais populares**.
+
+### ✔️ Técnicas e tecnologias utilizadas
+ 
+- ``Java 17``
+- ``InteliJ IDEA``
+- ``Paradigma de Orientação a Objetos``
+
+## 📁 Repositório Linguagens - API
+
+https://github.com/darpbr/imersao-java-api
 
 ---
 
@@ -102,3 +113,11 @@ no WhatsApp ou outro sistema de mensagens.
 2. Colocar a aplicação no cloud da Oracle;
 3. Implementar algum mecanismo de votação na API, para que outros amigos votem nas linguagens preferidas para que se possa fazer um ranking;
 4. Desafio supremo: Evoluir o projeto das três primeiras aula para que ele gere um bundle de stickers, para que se possa fazer o download e já incluir vários stickers no WhatsApp; Usar os conhecimentos aprendidos em alguma imersão React da Alura e fazer uma aplicação front-end para gerar esse bundle, onde possa se passar a URL do conteúdo e já visualizar os stickers;
+
+
+# Como me encontrar?
+
+<div>  
+  <a href = "mailto:darpbr@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+  <a href="www.linkedin.com/in/darp-br" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+</div
