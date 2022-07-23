@@ -115,7 +115,7 @@ no WhatsApp ou outro sistema de mensagens.
 4. Desafio supremo: Evoluir o projeto das três primeiras aula para que ele gere um bundle de stickers, para que se possa fazer o download e já incluir vários stickers no WhatsApp; Usar os conhecimentos aprendidos em alguma imersão React da Alura e fazer uma aplicação front-end para gerar esse bundle, onde possa se passar a URL do conteúdo e já visualizar os stickers;
 
 
-# Como me encontrar?
+<h1 align="center"> Onde me encontrar? </h1>
 
 <div>  
   <a href = "mailto:darpbr@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
