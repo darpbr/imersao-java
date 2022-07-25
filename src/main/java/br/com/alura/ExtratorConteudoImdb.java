@@ -15,7 +15,13 @@ public class ExtratorConteudoImdb implements ExtratorConteudo{
         for (Map<String, String> conteudoJson: listaJson ) {
             String titulo = conteudoJson.get("title");
             String urlImagem = conteudoJson.get("image").replaceAll("(@+)(.*).jpg$","$1.jpg");
-            listaConteudo.add(new Conteudo(titulo, urlImagem));
+            if(conteudoJson.get("imDbRating").isEmpty()){
+                Double nota = -1.0;
+                listaConteudo.add(new Conteudo(titulo, urlImagem, nota));
+            }else {
+                Double nota = Double.valueOf(conteudoJson.get("imDbRating"));
+                listaConteudo.add(new Conteudo(titulo, urlImagem, nota));
+            }
         }
         return listaConteudo;
     }

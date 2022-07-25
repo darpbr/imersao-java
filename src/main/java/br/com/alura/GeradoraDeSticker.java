@@ -14,11 +14,11 @@ import java.nio.file.Paths;
 
 public class GeradoraDeSticker {
 
-    public void cria(InputStream inputStream, String nomeArquivo, Double nota) throws IOException, FontFormatException {
+    public void cria(InputStream inputStream, String nomeArquivo) throws IOException, FontFormatException {
 
         BufferedImage imagemOriginal = ImageIO.read(inputStream);
-        InputStream inputStream1 = new FileInputStream(new File("images/icone-filme.png"));
-        BufferedImage iconeFilme = ImageIO.read(inputStream1);
+        InputStream iconeFigurinha = new FileInputStream(new File("images/icone-filme.png"));
+        BufferedImage icone = ImageIO.read(iconeFigurinha);
 
 //        criar uma imagem em memória com transparência e com tamanho novo
         int largura = imagemOriginal.getWidth();
@@ -36,30 +36,31 @@ public class GeradoraDeSticker {
                 .deriveFont(Font.PLAIN, largura/15);
 
         //        Veririficando a nota para personalização da mensagem e inclusão do icone no poster
-        String mensagem = "";
-
-        if(nota >= 9){
-            System.out.println("\u001b[1m \u001b[42m Nota: \u001b[m " +
-                    nota);
-            mensagem = "Filme TOP";
-            graphics.drawImage(iconeFilme, (largura/2)+largura/4, novaAltura - 100, null);
-        }else if(nota >= 7){
-            System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
-                    nota);
-            mensagem = "Bom Filme!";
-        }else if(nota >= 4){
-            System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
-                    nota);
-            mensagem = "Filme classe C";
-        }else if(nota >= 0) {
-            System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
-                    nota);
-            mensagem = "Nem perca tempo assistindo";
-        }
-        else{
-            System.out.println("Não é um filme!");
-            mensagem = "Bela Imagem!";
-        }
+        String mensagem = "Teste Saída";
+//
+//        if(nota >= 9){
+//            System.out.println("\u001b[1m \u001b[42m Nota: \u001b[m " +
+//                    nota);
+////            System.out.println("U+2606");
+//            mensagem = "Filme TOP";
+//            graphics.drawImage(icone, (largura/2)+largura/4, novaAltura - 100, null);
+//        }else if(nota >= 7){
+//            System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+//                    nota);
+//            mensagem = "Bom Filme!";
+//        }else if(nota >= 4){
+//            System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+//                    nota);
+//            mensagem = "Filme classe C";
+//        }else if(nota >= 0) {
+//            System.out.println("\u001b[1m \u001b[43m Nota: \u001b[m " +
+//                    nota);
+//            mensagem = "Nem perca tempo assistindo";
+//        }
+//        else{
+//            System.out.println("Não é um filme!");
+//            mensagem = "Bela Imagem!";
+//        }
 
         graphics.setColor(Color.YELLOW);
         graphics.setFont(impact);
