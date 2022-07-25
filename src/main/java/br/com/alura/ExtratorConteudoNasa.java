@@ -15,7 +15,8 @@ public class ExtratorConteudoNasa implements ExtratorConteudo{
         for (Map<String, String> conteudoJson: listaJson ) {
             String titulo = conteudoJson.get("title");
             String urlImagem = conteudoJson.get("url");
-            listaConteudo.add(new Conteudo(titulo, urlImagem));
+            Double nota = -1.0;
+            listaConteudo.add(new Conteudo(titulo, urlImagem, nota));
         }
         return listaConteudo;
     }
